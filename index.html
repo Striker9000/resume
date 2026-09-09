@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ty Moore &mdash; Critical Facilities &amp; Data Center Operations</title>
+<meta name="description" content="Ty Moore - Critical infrastructure technician. Industrial controls, HVAC, electronics, and enterprise Linux/Windows administration. U.S. Army veteran. Relocating to the Washington DC metro.">
+<style>
+  :root{
+    --ink:#15191e;
+    --ink-soft:#4a5460;
+    --ink-faint:#6b7683;
+    --rule:#dfe3e8;
+    --rule-soft:#eef1f4;
+    --accent:#12574d;
+    --accent-soft:#e6f0ee;
+    --bg:#ffffff;
+    --page:#f4f5f7;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--page);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- action bar (screen only) ---------- */
+  .bar{
+    position:sticky;top:0;z-index:10;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(160%) blur(8px);
+    border-bottom:1px solid var(--rule);
+  }
+  .bar-in{
+    max-width:8.5in;margin:0 auto;padding:.7rem 1rem;
+    display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
+  }
+  .bar-name{font-weight:650;letter-spacing:.02em}
+  .bar-sp{flex:1 1 auto}
+  .btn{
+    display:inline-flex;align-items:center;gap:.45rem;
+    padding:.5rem .9rem;border-radius:7px;
+    font-size:.875rem;font-weight:600;text-decoration:none;
+    border:1px solid var(--accent);
+    transition:background .15s ease,color .15s ease;
+  }
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:#0d423b}
+  .btn-ghost{background:transparent;color:var(--accent)}
+  .btn-ghost:hover{background:var(--accent-soft)}
+
+  /* ---------- page ---------- */
+  .sheet{
+    max-width:8.5in;margin:1.5rem auto 3rem;
+    background:var(--bg);
+    padding:.75in .8in .9in;
+    border:1px solid var(--rule);
+    border-radius:3px;
+    box-shadow:0 1px 3px rgba(20,25,35,.06),0 8px 24px rgba(20,25,35,.05);
+  }
+
+  header.masthead{border-bottom:2.5px solid var(--accent);padding-bottom:.85rem;margin-bottom:1.25rem}
+  h1{
+    margin:0 0 .15rem;
+    font-size:2.1rem;line-height:1.1;
+    letter-spacing:.055em;font-weight:700;text-transform:uppercase;
+  }
+  .target{
+    color:var(--accent);font-weight:650;
+    font-size:.9rem;letter-spacing:.035em;text-transform:uppercase;
+    margin:.35rem 0 .55rem;
+  }
+  .reloc{
+    display:inline-block;
+    background:var(--accent-soft);color:var(--accent);
+    font-size:.8rem;font-weight:600;
+    padding:.2rem .55rem;border-radius:4px;
+    margin-bottom:.55rem;
+  }
+  .contact{
+    font-size:.875rem;color:var(--ink-soft);
+    display:flex;flex-wrap:wrap;gap:.3rem .85rem;
+  }
+  .contact a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule)}
+  .contact a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+  h2{
+    font-size:.8rem;font-weight:700;
+    letter-spacing:.13em;text-transform:uppercase;
+    color:var(--accent);
+    margin:1.6rem 0 .6rem;
+    padding-bottom:.28rem;border-bottom:1px solid var(--rule);
+  }
+  section:first-of-type h2{margin-top:.4rem}
+  p{margin:0 0 .7rem}
+  .summary{font-size:.945rem;color:var(--ink-soft)}
+
+  /* ---------- qualifications / skills grid ---------- */
+  dl.spec{margin:0;display:grid;grid-template-columns:11.5rem 1fr;gap:.42rem 1rem;font-size:.885rem}
+  dl.spec dt{font-weight:650;color:var(--ink)}
+  dl.spec dd{margin:0;color:var(--ink-soft)}
+
+  /* ---------- experience ---------- */
+  .job{margin-bottom:1.15rem;break-inside:avoid;page-break-inside:avoid}
+  .job:last-child{margin-bottom:.2rem}
+  .job-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap}
+  .job-org{font-weight:700;font-size:.985rem;letter-spacing:.01em}
+  .job-loc{color:var(--ink-faint);font-weight:400;font-size:.86rem}
+  .job-dates{color:var(--ink-faint);font-size:.83rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .job-title{color:var(--accent);font-weight:600;font-size:.9rem;margin:.05rem 0 .35rem}
+  .job ul{margin:0;padding-left:1.05rem}
+  .job li{margin-bottom:.24rem;font-size:.885rem;color:var(--ink-soft)}
+  .job li::marker{color:var(--accent)}
+
+  /* ---------- lists ---------- */
+  ul.plain{list-style:none;margin:0;padding:0;font-size:.885rem;color:var(--ink-soft)}
+  ul.plain li{padding-left:1rem;position:relative;margin-bottom:.25rem}
+  ul.plain li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+  .edu{margin-bottom:.6rem;font-size:.885rem}
+  .edu-school{font-weight:650}
+  .edu-degree{color:var(--ink-soft)}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+
+  footer.stamp{
+    margin-top:1.8rem;padding-top:.7rem;border-top:1px solid var(--rule-soft);
+    font-size:.75rem;color:var(--ink-faint);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  }
+
+  @media (max-width:700px){
+    .sheet{padding:1.35rem 1.15rem;margin:.75rem .6rem 2rem;border-radius:0}
+    h1{font-size:1.6rem}
+    dl.spec{grid-template-columns:1fr;gap:.1rem .5rem}
+    dl.spec dd{margin-bottom:.5rem}
+    .cols{grid-template-columns:1fr;gap:0}
+  }
+
+  /* ---------- print / PDF ---------- */
+  @page{size:letter;margin:.45in .5in}
+  @media print{
+    body{background:#fff;line-height:1.29}
+    .bar{display:none !important}
+    .sheet{max-width:none;margin:0;padding:0;border:0;border-radius:0;box-shadow:none}
+    header.masthead{padding-bottom:.4rem;margin-bottom:.55rem;border-bottom-width:2px}
+    h1{font-size:17.5pt;letter-spacing:.045em}
+    .target{font-size:8pt;margin:.2rem 0 .25rem}
+    .reloc{background:transparent;padding:0;font-size:8pt;margin-bottom:.25rem}
+    h2{font-size:7.9pt;margin:.6rem 0 .26rem;padding-bottom:.15rem;break-after:avoid;page-break-after:avoid}
+    section:first-of-type h2{margin-top:.1rem}
+    .contact{font-size:8pt;gap:.1rem .6rem}
+    .contact a{border-bottom:0}
+    .summary,dl.spec,ul.plain,.job li,.edu{font-size:8.5pt}
+    .summary{margin-bottom:0}
+    dl.spec{grid-template-columns:9.2rem 1fr;gap:.2rem .7rem}
+    .job-org{font-size:9.1pt}
+    .job-title{font-size:8.6pt;margin:0 0 .16rem}
+    .job-dates,.job-loc{font-size:8pt}
+    .job{margin-bottom:.44rem}
+    .job ul{padding-left:.85rem}
+    .job li{margin-bottom:.09rem}
+    ul.plain li{margin-bottom:.09rem}
+    .edu{margin-bottom:.3rem}
+    .cols{gap:1rem}
+    a{color:inherit;text-decoration:none}
+    footer.stamp{margin-top:.7rem;padding-top:.35rem;font-size:7.2pt}
+  }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-name">Ty Moore</span>
+    <span class="bar-sp"></span>
+    <a class="btn btn-primary" href="TyMoore_Resume.pdf" download>&#8595;&nbsp; Download PDF</a>
+    <a class="btn btn-ghost" href="https://www.linkedin.com/in/tyshaun-moore-b487ba282">LinkedIn</a>
+  </div>
+</div>
+
+<main class="sheet">
+
+  <header class="masthead">
+    <h1>Ty Moore</h1>
+    <div class="target">Data Center Controls &middot; Critical Facilities &middot; Engineering Operations</div>
+    <div class="reloc">Relocating to the Washington DC metro &mdash; DC / Maryland / Northern Virginia</div>
+    <div class="contact">
+      <span>Currently San Diego, CA</span>
+      <span>&middot;</span>
+      <a href="tel:+12136508370">213-650-8370</a>
+      <span>&middot;</span>
+      <a href="mailto:tyshaunmoore.tm@gmail.com">tyshaunmoore.tm@gmail.com</a>
+      <span>&middot;</span>
+      <a href="https://www.linkedin.com/in/tyshaun-moore-b487ba282">LinkedIn</a>
+      <span>&middot;</span>
+      <a href="https://github.com/Striker9000">GitHub</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">Critical infrastructure technician with 10+ years supporting mission-critical electrical, mechanical, and computing systems in 24/7 and air-gapped environments. Hands-on background spanning industrial controls and PLCs, component-level electronics troubleshooting, HVAC (EPA 608 certified, refrigerant handling), and enterprise Linux and Windows server administration. Experienced with preventive maintenance, root cause analysis, change management documentation, and vendor and contractor oversight. U.S. Army veteran, medically retired, with a documented record of operating and repairing complex systems where downtime is not an option.</p>
+  </section>
+
+  <section>
+    <h2>Core Qualifications &mdash; Critical Facilities</h2>
+    <dl class="spec">
+      <dt>Industrial Controls</dt>
+      <dd>PLC programming and maintenance, electrical control systems, sensors, relays, closed-loop control, automated assembly and packaging lines, calibration</dd>
+
+      <dt>HVAC / Mechanical</dt>
+      <dd>EPA 608 Certification (refrigerant handling); utilities equipment repair (U.S. Army MOS 91C)</dd>
+
+      <dt>Electrical / Electronics</dt>
+      <dd>Component-level troubleshooting, electrical schematics and control panel drawings, oscilloscopes, digital multimeters, power supplies, RF test equipment, chip programming</dd>
+
+      <dt>Cabling / Low Voltage</dt>
+      <dd>Soldering to IPC-A-610 and J-STD-001, cable and wire harness assembly to WHMA-A-620, copper and fiber structured cabling, Cisco switch and router configuration</dd>
+
+      <dt>Monitoring &amp; Automation</dt>
+      <dd>Splunk, SCCM, Ansible, Python, PowerShell, Bash; automated patching, backup, and health-monitoring solutions</dd>
+
+      <dt>Operations Discipline</dt>
+      <dd>Preventive maintenance, root cause analysis, STIG and compliance auditing, change management and technical documentation, 24/7 and on-call rotations, contractor and vendor supervision</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Professional Experience</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-org">NWIC / Information Systems Solutions <span class="job-loc">(NIWC Pacific) &mdash; San Diego, CA</span></div>
+        <div class="job-dates">Jun 2025 &ndash; Feb 2026</div>
+      </div>
+      <div class="job-title">Linux Systems Engineer</div>
+      <ul>
+        <li>Administered and secured RHEL systems supporting critical infrastructure; enforced STIG compliance, automated patching, and mitigated zero-day vulnerabilities.</li>
+        <li>Built backup and monitoring solutions in Ansible and Python that improved uptime and shortened incident response time.</li>
+        <li>Engineered an ASTi communications system from the ground up and authored Interface Control Documents defining data flow between Linux, Windows, and network nodes.</li>
+        <li>Executed a RHEL 7 to RHEL 8 migration with full integrity validation.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-org">Boeing / Apex Systems <span class="job-loc">&mdash; El Segundo, CA</span></div>
+        <div class="job-dates">Mar 2024 &ndash; Jan 2025</div>
+      </div>
+      <div class="job-title">Test Engineer &amp; Systems Administrator</div>
+      <ul>
+        <li>Led automation and testing of satellite configurations; improved test efficiency 40% through scripting and performance troubleshooting.</li>
+        <li>Deployed and hardened virtual servers in a VxRail VMware environment using NSX for network virtualization and Aria for automation.</li>
+        <li>Raised security compliance 30% through structured audits and patch cycles.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-org">ISPA Technology <span class="job-loc">&mdash; Panama City Beach, FL</span></div>
+        <div class="job-dates">Aug 2023 &ndash; Sep 2023</div>
+      </div>
+      <div class="job-title">Junior Linux Systems Administrator &mdash; short-term contract</div>
+      <ul>
+        <li>Maintained RHEL servers at 99.9% uptime for 1,000+ end users.</li>
+        <li>Automated updates and system checks in Bash and Python.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-org">Northrop Grumman <span class="job-loc">&mdash; Redondo Beach, CA</span></div>
+        <div class="job-dates">Aug 2022 &ndash; May 2023</div>
+      </div>
+      <div class="job-title">DevOps Engineer / Systems Administrator</div>
+      <ul>
+        <li>Managed Windows and Linux systems for 500+ users; authored Ansible playbooks to automate update and configuration cycles.</li>
+        <li>Ran proactive monitoring and incident detection through SCCM and Splunk.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-org">Raytheon <span class="job-loc">&mdash; El Segundo, CA</span></div>
+        <div class="job-dates">Nov 2020 &ndash; Aug 2022</div>
+      </div>
+      <div class="job-title">Engineering Systems Administrator</div>
+      <ul>
+        <li>Maintained high-security isolated and air-gapped network environments spanning Linux, Windows, and RHEL systems.</li>
+        <li>Supported NetApp storage, VMware, Cisco routers and switches, AV systems, and closed-circuit networks.</li>
+        <li>Automated air-gapped system maintenance, cutting manual effort 40%.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-org">JT4 <span class="job-loc">&mdash; Edwards AFB / Las Vegas, NV</span></div>
+        <div class="job-dates">Oct 2019 &ndash; Nov 2020</div>
+      </div>
+      <div class="job-title">Avionics Technician II</div>
+      <ul>
+        <li>Monitored and maintained networked hardware and software supporting mission-critical aircraft communications systems.</li>
+        <li>Served as Service Technical Representative to the U.S. Army on UAV systems.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-org">General Atomics Aeronautical Systems <span class="job-loc">&mdash; Palmdale, CA</span></div>
+        <div class="job-dates">Aug 2017 &ndash; Oct 2019</div>
+      </div>
+      <div class="job-title">Avionics Technician II &mdash; UAV Tech / Deployable</div>
+      <ul>
+        <li>Configured and tested aircraft communications hardware and software, including 1553 bus systems, Linux hosts, and VMware/vSphere on ground control stations.</li>
+        <li>Performed soldering to IPC-A-610 and J-STD-001 standards and cable troubleshooting to WHMA-A-620.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-org">JT4 <span class="job-loc">(formerly JT3) &mdash; Las Vegas, NV</span></div>
+        <div class="job-dates">Jan 2016 &ndash; Aug 2017</div>
+      </div>
+      <div class="job-title">Electronics Engineering Technician II</div>
+      <ul>
+        <li>Maintained closed-circuit networks, Cisco routers and switches, virtual machines, and AV systems.</li>
+        <li>Troubleshot hardware to the component level using oscilloscopes, power supplies, digital multimeters, and RF test equipment; performed chip programming and inventory control.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-org">BriovaRx / Catamaran <span class="job-loc">| OptumRx &mdash; Las Vegas, NV</span></div>
+        <div class="job-dates">Sep 2015 &ndash; Nov 2016</div>
+      </div>
+      <div class="job-title">Pharmacy Automation Specialist</div>
+      <ul>
+        <li>Operated, maintained, and repaired robotic prescription dispensing systems processing 50,000+ prescriptions per day.</li>
+        <li>Worked hands-on with PLCs, electrical control systems, and an automated assembly and packaging line, plus the associated computers and networks.</li>
+        <li>Wrote, maintained, and optimized the automation programs driving the line, and performed inventory and point-of-sale system support.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-org">United States Army <span class="job-loc">&mdash; two enlistments</span></div>
+        <div class="job-dates">1999 &ndash; 2003, 2007 &ndash; 2011</div>
+      </div>
+      <div class="job-title">Utilities Equipment Repairer (91C) &middot; Avionic Radar Repairer (35R) &middot; Avionic System Repairer (94R)</div>
+      <ul>
+        <li>Maintained and repaired power generation, environmental control, and utilities equipment in field and deployed conditions.</li>
+        <li>Repaired avionic radar and communications systems to the component level.</li>
+        <li>Honorable service both enlistments; medically retired 2011.</li>
+        <li>Deployments: Kosovo (Kosovo Campaign Medal w/ Bronze Service Star) and Korea (Korean Defense Service Medal). Approximately 4 years 5 months foreign service.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <div class="cols">
+    <section>
+      <h2>Education</h2>
+      <div class="edu">
+        <div class="edu-school">University of Advancing Technology &mdash; Tempe, AZ</div>
+        <div class="edu-degree">B.S., Artificial Intelligence (in progress, expected 2027)</div>
+      </div>
+      <div class="edu">
+        <div class="edu-school">College of Southern Nevada &mdash; Las Vegas, NV</div>
+        <div class="edu-degree">A.A.S., Computer Information Technology</div>
+      </div>
+      <div class="edu">
+        <div class="edu-school">Fayetteville Technical Community College &mdash; Fayetteville, NC</div>
+        <div class="edu-degree">A.A.S., Electronics Engineering Technology</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <ul class="plain">
+        <li>EPA 608 Certification (refrigerant handling)</li>
+        <li>CompTIA Linux+ (2023)</li>
+        <li>CompTIA Security+ (2023)</li>
+        <li>DoD 8570 Level II Certified</li>
+        <li>FCC License, Ship Radar Endorsement</li>
+      </ul>
+    </section>
+  </div>
+
+  <section>
+    <h2>Technical Skills</h2>
+    <dl class="spec">
+      <dt>Controls &amp; Electrical</dt>
+      <dd>PLCs, electrical control systems, sensors, relays, calibration, electrical schematics, control panel drawings, chip programming</dd>
+
+      <dt>Mechanical / HVAC</dt>
+      <dd>EPA 608 refrigerant handling, utilities and environmental control equipment, power generation equipment</dd>
+
+      <dt>Test Equipment</dt>
+      <dd>Oscilloscopes, digital multimeters, power supplies, RF test equipment</dd>
+
+      <dt>Operating Systems</dt>
+      <dd>RHEL 7/8, Ubuntu, Windows Server 2008&ndash;2019</dd>
+
+      <dt>Automation &amp; Scripting</dt>
+      <dd>Ansible, Python, PowerShell, Bash</dd>
+
+      <dt>Virtualization</dt>
+      <dd>VMware vSphere/vCenter/ESXi, VxRail, NSX, Proxmox, Hyper-V, Docker</dd>
+
+      <dt>Networking</dt>
+      <dd>TCP/IP, DNS, DHCP, LDAP, Cisco routers and switches, Wireshark, copper and fiber structured cabling, closed-circuit networks</dd>
+
+      <dt>Storage</dt>
+      <dd>NetApp, RAID, NAS</dd>
+
+      <dt>Monitoring &amp; Compliance</dt>
+      <dd>Splunk, SCCM, WSUS, STIGs, vulnerability scanning, patch management</dd>
+    </dl>
+  </section>
+
+  <footer class="stamp">
+    <span>Ty Moore &mdash; Critical Facilities &amp; Data Center Operations</span>
+    <span>Updated September 2026</span>
+  </footer>
+
+</main>
+
+</body>
+</html>
