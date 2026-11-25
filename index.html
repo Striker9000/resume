@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Ty Moore, Applied AI Engineer">
+<meta property="og:description" content="Local LLMs, retrieval, and machine learning on secure infrastructure. B.A.S. AI and ML (UAT, Dec 2026). U.S. Army veteran. Las Vegas or remote.">
 <meta name="description" content="Ty Moore, Applied AI Engineer. Local LLMs, retrieval, and machine learning on secure infrastructure. B.A.S. AI and ML (UAT, Dec 2026). U.S. Army veteran. Las Vegas or remote.">
 <title>Ty Moore, Applied AI Engineer</title>
 <style>
@@ -62,7 +64,7 @@
 
 <h2>Summary</h2>
 <p>AI and machine learning student (B.A.S., expected December 2026) with ten years in technical and systems roles, the last
-five as a Linux systems engineer on air-gapped, high-security networks, plus nine years of U.S. Army technical service. I build AI that runs where the
+five as a Linux and systems engineer on air-gapped, high-security networks, plus nine years of U.S. Army technical service. I build AI that runs where the
 data has to stay put: local language models, retrieval over private documents, and models I can test and explain.
 My background in Linux hardening, automation, and secure networks means I can take a model from a notebook to a
 working system that someone else can actually use.</p>
@@ -79,7 +81,7 @@ working system that someone else can actually use.</p>
 <div class="row"><span class="proj">Calm vs. party crate classifier (CNN) <span class="tag">PyTorch, librosa, RTX 3060</span></span></div>
 <ul>
   <li>Trained a convolutional network on spectrograms from 896 songs in my own DJ library, labeled from my calm and party crates, using random 10-second windows, standardization, early stopping, and a cosine learning-rate schedule.</li>
-  <li>Split the test set by artist so the model is always graded on artists it never heard: 77% balanced accuracy (AUC 0.86) across 5 seeds, beating hand-built audio features (68%, on all 5 seeds) and BPM alone (52%).</li>
+  <li>Split the test set by artist so the model is always graded on artists it never heard: 77% balanced accuracy (AUC 0.86) across 5 seeds, beating hand-built audio features (68%) on all 5 splits and BPM alone (52%).</li>
   <li>Ran a genre check that dropped accuracy to 62% on hip-hop only, and published that limit instead of hiding it.</li>
 </ul>
 

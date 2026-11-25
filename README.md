@@ -1,8 +1,8 @@
-# Ty Moore — Résumé
+# Ty Moore, Resume
 
-Critical infrastructure technician. Industrial controls, HVAC, component-level electronics, and enterprise Linux/Windows administration. U.S. Army veteran, medically retired. Relocating to the Washington DC metro (DC / Maryland / Northern Virginia).
+Applied AI Engineer. Local LLMs, retrieval (RAG), and machine learning on secure infrastructure. B.A.S. in Artificial Intelligence and Machine Learning, University of Advancing Technology (expected December 2026). Ten years in technical and systems roles, including air-gapped Linux and Windows engineering. U.S. Army veteran. Las Vegas, NV, open to remote.
 
-**Target roles:** Data Center Controls Technician · Critical Facilities Technician · Data Center Engineering Operations Technician
+**Target roles:** Forward Deployed Engineer, Applied AI Engineer, AI Solutions Engineer, AI security and evaluation. Linux and systems engineering roles also considered.
 
 ---
 
@@ -10,8 +10,11 @@ Critical infrastructure technician. Industrial controls, HVAC, component-level e
 
 | | |
 |---|---|
-| **Web** | https://striker9000.github.io/resume/ |
-| **PDF (direct download)** | https://striker9000.github.io/resume/TyMoore_Resume.pdf |
+| **AI resume (web)** | https://striker9000.github.io/resume/ |
+| **AI resume (PDF)** | https://striker9000.github.io/resume/TyMoore_Resume.pdf |
+| **Systems engineer resume (web)** | https://striker9000.github.io/resume/sysadmin.html |
+| **Systems engineer resume (PDF)** | https://striker9000.github.io/resume/TyMoore_Resume_Systems.pdf |
+| **Portfolio** | https://tmaiconsultant.lovable.app/boards |
 
 ---
 
@@ -25,18 +28,18 @@ Critical infrastructure technician. Industrial controls, HVAC, component-level e
 
 ## How this repo works
 
-`index.html` is the single source of truth. It carries a print stylesheet, so the
-web page and the PDF are rendered from the same file and cannot drift apart.
+Each page is its own source of truth and carries a print stylesheet, so a page and its PDF
+are rendered from the same file and cannot drift apart.
 
-To regenerate the PDF after editing `index.html`:
+- `index.html` -> `TyMoore_Resume.pdf`
+- `sysadmin.html` -> `TyMoore_Resume_Systems.pdf`
+
+To regenerate both PDFs after editing:
 
 ```powershell
 .\build-pdf.ps1
 ```
 
-That drives headless Chrome to print `index.html` to `TyMoore_Resume.pdf` at
-Letter size with no browser header/footer. The output keeps a real text layer
-with embedded fonts, so applicant tracking systems can parse it — it is not a
-scanned image.
-
-Commit both files together and GitHub Pages redeploys automatically.
+That drives headless Chrome to print each page at Letter size with no browser header or
+footer. The output keeps a real text layer with embedded fonts, so applicant tracking
+systems can parse it.
