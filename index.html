@@ -73,7 +73,7 @@ working system that someone else can actually use.</p>
 
 <div class="row"><span class="proj">HYDRAAI, offline AI assistant on a USB drive <span class="tag">Python, JavaScript, llama.cpp, CUDA, retrieval (RAG)</span></span></div>
 <ul>
-  <li>Built a self-contained assistant that carries the language model, a 308-passage retrieval index over 35 documents, and the app on one drive, so it runs on Windows with no internet and cites the source document it answered from.</li>
+  <li>Built a self-contained assistant that carries the language model, a 248-passage retrieval index over 28 documents, and the app on one drive, so it runs on Windows with no internet and cites the source document it answered from.</li>
   <li>Found and fixed a CUDA setup defect that held generation at 3.10 tokens/sec; after the fix it ran at 60.47 tokens/sec (about 19.5x faster), verified on a second machine.</li>
   <li>Measured retrieval with 10 hand-written questions: correct document ranked first 7 times and in the top three 9 times. Wrote the search twice (Python reference, JavaScript runtime) with a test proving both return the same results.</li>
 </ul>
